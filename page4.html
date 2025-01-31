@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharv Maniyar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: pink;
+            position: relative;
+            height: 100vh; /* Ensure the body takes full height of the screen */
+        }
+
+        video {
+            width: 20%; /* Adjust video width */
+            height: auto;
+            margin-bottom: 20px; /* Space between video and buttons */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative; /* Allow absolute positioning of the buttons */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            position: absolute; /* Position the buttons absolutely */
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #yesButton {
+            left: 45%; /* Initial position of the Yes button */
+            top: 50%;
+        }
+
+        #noButton {
+            left: 50%; /* Initial position of the No button */
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted>
+        <source src="video4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2><i>Baby Man Jao na!! Kitna Bhav Khati Ho </i></h2>
+    <h5></h5>
+
+    <div class="buttons">
+        <button id="yesButton" onclick="window.location.href='page5.html';">Yes</button>
+        <button id="noButton" onclick="jumpButton()">No</button>
+    </div>
+
+    <script>
+        function jumpButton() {
+            var noButton = document.getElementById("noButton");
+
+            // Randomly generate new positions for the "No" button within the screen bounds
+            var maxX = window.innerWidth - noButton.offsetWidth; // max X position (width of the screen minus button width)
+            var maxY = window.innerHeight - noButton.offsetHeight; // max Y position (height of the screen minus button height)
+
+            // Generate random coordinates within the screen bounds
+            var randomX = Math.random() * maxX;
+            var randomY = Math.random() * maxY;
+
+            // Set the new position of the "No" button
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+
+            // Add a smooth transition for the jump
+            noButton.style.transition = "left 0.5s, top 0.5s"; // smooth animation
+        }
+    </script>
+
+</body>
+</html>
